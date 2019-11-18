@@ -1,9 +1,0 @@
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\bin\Debug\TrackerLibrary.dll
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\bin\Debug\TrackerLibrary.pdb
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csprojAssemblyReference.cache
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.dll
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.pdb
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\bin\Debug\Dapper.dll
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\bin\Debug\Dapper.xml
-C:\Users\Adrian\Documents\Adrian\More Coding\C#\Repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
