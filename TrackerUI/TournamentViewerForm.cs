@@ -160,6 +160,13 @@ namespace TrackerUI
 
         private void ScoreButton_Click(object sender, EventArgs e)
         {
+            string errorMessage = ValidateData();
+            if (errorMessage.Length > 0)
+            {
+                MessageBox.Show($"Input Error: { errorMessage }");
+                return;
+            }
+
             MatchupModel m = (MatchupModel)matchupListBox.SelectedItem;
             double teamOneScore = 0;
             double teamTwoScore = 0;
@@ -203,41 +210,49 @@ namespace TrackerUI
                 }
             }
 
-            if (teamOneScore > teamTwoScore)
+            try
             {
-                m.Winner = m.Entries[0].TeamCompeting;
+                TournamentLogic.UpdateTournamentResults(tournament);
             }
-            else if (teamOneScore < teamTwoScore)
+            catch (Exception ex)
             {
-                m.Winner = m.Entries[1].TeamCompeting;
-            }
-            else
-            {
-                MessageBox.Show("I do not handle tie games");
-            }
-
-            foreach(List<MatchupModel> round in tournament.Rounds)
-            {
-                foreach(MatchupModel rm in round)
-                {
-                    foreach(MatchupEntryModel me in rm.Entries)
-                    {
-                        if(me.ParentMatchup != null)
-                        {
-                            if (me.ParentMatchup.Id == m.Id)
-                            {
-                                me.TeamCompeting = m.Winner;
-                                GlobalConfig.Connection.UpdateMatchup(rm);
-                            }
-                        }
-                    }
-                }
+                MessageBox.Show($"The applicatino had the following error: { ex.Message }");
+                return;
             }
 
             LoadMatchups((int)roundDropdown.SelectedItem);
             LoadMatchup((MatchupModel)matchupListBox.SelectedItem);
+        }
 
-            GlobalConfig.Connection.UpdateMatchup(m);
+        //Validates Score Input
+        private string ValidateData()
+        {
+            string output = "";
+
+            double teamOneScore = 0;
+            double teamTwoScore = 0;
+
+            bool scoreOneValid = double.TryParse(teamOneScoreValue.Text, out teamOneScore);
+            bool scoreTwoValid = double.TryParse(teamTwoScoreValue.Text, out teamTwoScore);
+
+            if (!scoreOneValid)
+            {
+                output = "Team One Score value is not a valid number.";
+            }
+            else if (!scoreTwoValid)
+            {
+                output = "Team Two Score value is not a valid number.";
+            }
+            else if (teamOneScore == 0 && teamTwoScore == 0)
+            {
+                output = "You did not enter a score for either team.";
+            }
+            else if (teamOneScore == teamTwoScore)
+            {
+                output = "We do not allow ties.";
+            }
+
+            return output;
         }
     }
 }
