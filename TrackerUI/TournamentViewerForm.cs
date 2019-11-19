@@ -117,18 +117,18 @@ namespace TrackerUI
 
 
         private void LoadMatchup(MatchupModel m)
-        {
+        {   
             for (int i = 0; i < m.Entries.Count; i++)
             {
                 if (i == 0)
                 {
                     if (m.Entries[0].TeamCompeting != null)
                     {
-                        teamOneName.Text = m.Entries[0].TeamCompeting.TeamName;
-                        teamOneScoreValue.Text = m.Entries[0].Score.ToString();
+                    teamOneName.Text = m.Entries[0].TeamCompeting.TeamName;
+                    teamOneScoreValue.Text = m.Entries[0].Score.ToString();
 
-                        teamTwoName.Text = "<Bye>";
-                        teamTwoScoreValue.Text = "0";
+                    teamTwoName.Text = "<Bye>";
+                    teamTwoScoreValue.Text = "0";
                     }
                     else
                     {
@@ -216,7 +216,7 @@ namespace TrackerUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"The applicatino had the following error: { ex.Message }");
+                MessageBox.Show($"The application had the following error: { ex.Message }");
                 return;
             }
 
